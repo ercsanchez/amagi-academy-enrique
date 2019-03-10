@@ -1,0 +1,96 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Node with Docker
+  license:
+    name: Proprietary
+basePath: /v1
+consumes:
+  - application/json
+produces:
+  - application/json
+schemes:
+  - http
+  - https
+
+paths:
+  '/swagger.json': 
+  get:
+    tags:
+      -Spec
+    operationID: retrieveSpec
+    description: Retrieve OpenAPIS spec.
+    responses:
+    '200':
+      description: Successful
+      schema:
+        type: object
+  '/register': 
+    post:
+      description: Admin registers new user
+      operationID: adminRegisterUser
+      tags:
+        - Register
+      parameters:
+        - name: user
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UserRegisterBase'
+      responses:
+        '200':
+          description: User registered
+          schema:
+            type: object
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+        default:
+          description: Unexpected error
+          schema:
+            type: object
+  '/login':
+    post:
+      description: User signs in
+      operationID: adminSignIn
+      tags:
+        - Signin
+      parameters:
+        - name: user
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UserSignInBase'
+      responses:
+        '200':
+          description: User is signed in
+          schema:
+            type: object
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+        default:
+          description: Unexpected error
+          schema:
+            type: object
+
+definitions:
+  UserRegisterBase:
+    required:
+      - email
+    type: object
+    properties:
+      email:
+        type: string
+  UserRegisterBase:
+    required:
+      - email
+      - password
+    type: object
+    properties:
+      email:
+        type: string   
+      password:
+        type: string 

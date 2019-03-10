@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+
+This file has been changed to test branching (adding a new feature called feature 1)
+
+adding more text
+=======
+someone edited master branch
+>>>>>>> 9b395da8d698518b68ee13da8d043ff3872ed5c7

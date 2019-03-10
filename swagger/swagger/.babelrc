@@ -1,0 +1,13 @@
+{
+    "presets": [
+      ["env", {
+        "targets": {
+          "node": "current"
+        }
+      }]
+    ],
+    "plugins": [ "syntax-async-functions", 
+      "transform-object-rest-spread",
+      ["babel-plugin-root-import", {"rootPathSuffix": "src"} ]]
+}
+

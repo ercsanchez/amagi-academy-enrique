@@ -1,0 +1,68 @@
+h2 {
+    color: red;
+    color: green; 
+}
+
+#one {
+    color: yellow;
+}
+
+.firstClass {
+    color: purple;
+}
+
+#fontSizeTest {
+    font-size: 16px;
+    font-size: 1em;
+    font-size: 1.125em;
+    width: 20vw;
+    height: 40vh;
+}
+
+#relativeSize {
+    width: 5vw;
+    height: 5vh;
+    font-size: 50%;
+}
+
+#two {
+    background: #333FFF;
+    padding: 2em;
+    margin: 1em;
+}
+#three {
+    background: #339FFF;
+    color: green;
+    padding: 2em;
+    margin: 1em;
+}
+#four {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    color: inherit;
+    color: initial;
+    font-size: 1em;
+    background: #33D7FF;
+}
+
+
+
+/* if the same rule, CSS will implement the lower one; waterfall concept */
+/* CSS selectors
+1. element 
+
+2. id
+
+3. class
+
+CSS rule hierarchy:
+
+accdg.
+importance, specificity, source order
+e.g.
+style att (inline), id, class, element selector
+
+CSS properties
+
+*/

@@ -1,0 +1,5 @@
+Editing this file to test merging and pushing
+Editing to test pull
+editing to test merge
+editing to test merge after edit in terminal
+

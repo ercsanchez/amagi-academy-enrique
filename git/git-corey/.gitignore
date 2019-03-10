@@ -1,0 +1,5 @@
+
+# this file ignores all files present here
+
+file-ignore.txt
+*.pyc

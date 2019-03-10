@@ -1,0 +1,80 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Node Koa JSONB Exercise
+  license:
+    name: Proprietary
+basePath: /v1
+consumes:
+  - application/json 
+produces:
+  - application/json
+schemes:
+  - http
+  - https
+paths:
+##########--SWAGGER--##########
+  '/swagger.json':
+    get:
+      tags:
+        - Spec
+      operationId: retrieveSpec
+      description: |
+        Retrieve OpenAPI spec.
+      responses:
+        '200':
+          description: Successful
+          schema:
+            type: object    
+##########--Register--###########
+  '/cards':
+    post:
+      description: Admin Adds A New Card
+      operationId: adminAddCard
+      tags:
+        - Add Card
+      parameters:
+        - name: card
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CardRegisterBase'
+      responses:
+        '200':
+          description: Card is registered
+          schema:
+            type: object
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+        default:
+          description: Unexpected error
+          schema:
+            type: object  
+    get:
+      description: Get All Cards
+      operationId: getAllCards
+      tags:
+        - Get All Cards
+      responses:
+        '200':
+          description: Card is registered
+          schema:
+            type: object
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+        default:
+          description: Unexpected error
+          schema:
+            type: object   
+definitions:
+  CardRegisterBase:
+    required:
+      - details
+    type: object
+    properties:
+      details:
+        type: object

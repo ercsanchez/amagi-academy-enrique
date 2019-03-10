@@ -1,0 +1,195 @@
+<!--
+
+<html>
+    <head>
+        <script>
+            alert("From HEAD:" + document.body);
+        </script>
+    </head>
+    <body>
+        <script>
+            alert("Fron BODY:" + document.body);    
+        </script>
+    </body>
+</html> -->
+
+<!-- 
+<html>
+    <body>
+        <div>Begin</div>
+        <ul>
+            <li>information</li>
+        </ul>
+        <div>End</div>
+        <script>
+            for (let i = 0; i < document.body.childNodes.length; i++) {
+                alert(document.body.childNodes[i]);
+            }
+        </script>
+    </body>
+</html> -->
+
+
+<!-- 
+
+targeting nodes:
+document.body.childNodes[1]
+document.body.children[1]
+document.body.lastElementChild.lastElementChild
+
+better ways to target nodes:
+id's can only be used once
+ElementById
+ElementsByTag or ElementsByTagName - unless you want to collect the tags
+ElementByClass
+geElementsByName - form fields and stuff
+
+
+create an element:
+let div = document.createElement("div");
+div.className = "alert alert success";
+div.innerHTML = "<strong>Hi there!</strong>You've read an important message";
+insert an element:
+document.body.appendChild(variable);
+
+innerHTML is html 
+create text is string
+whats the difference???
+
+inserting:
+before
+prepend
+append
+after
+
+DELETING DOM ELEMENTS:
+good:
+let clear = (elem) => {
+    while (elem.firstChild) {
+        elem.firstChild.remove();
+    }
+}
+
+better:
+let clear = (elem) => {
+    elem.innerHTML = '';
+} clears the node but maintains its position
+
+
+EVENT HANDLING:
+mouse events
+keyboard events
+document events
+css events
+html events
+
+
+this just refers to the current scope
+
+EVENT LISTENING:
+Event - name
+Handler - handler function
+Phase
+
+element.addEventListener()
+
+homework: 
+
+
+-->
+<!-- <html>
+
+<body>
+    <div id="elem"> 
+        <div id="elem-content">DIV1</div>
+    </div>
+    
+    <button onclick="countDracula()">Click me for some sheep!</button>
+    <button onClick="alert(this.innerHTML)">Click me.</button>
+    <button id="button2">Click me to test event listeners.</button>
+
+
+    <script>
+        let elem = document.getElementById("elem");
+        elem.style.fontSize = "30px";
+
+        let div = document.createElement("div");
+        let li1 = document.createElement("li");
+        div.innerHTML = "DIV 2";
+        li1.innerHTML = "item 1";
+
+        document.body.appendChild(div);
+        div.appendChild(li1);
+        
+        let item2 = document.createElement("li");
+        item2.innerHTML = "item 2";
+        div.before(item2);
+     
+        function countDracula() {
+            for (let i = 1; i <= 3; i++) {
+                    alert("number " + i);
+            }
+        }    
+        function handler1() {
+            alert("This is handler 1");
+        }
+        function handler2() {
+            alert("This is handler 2");
+        }
+
+        let button2 = document.getElementById("button2");
+        button2.onclick = () => alert("Hello");
+        button2.addEventListener("click", handler1);
+        button2.addEventListener("click", handler2);
+        
+
+        </script>
+    </body>
+</html> -->
+
+<html>
+    <head>
+    </head>
+    <body>
+        <p>Input 1: How many Tags?</p>
+        <input id="input1">
+        <button id="button1">Button 1: Add a tag</button>
+        <button id="button2">Button 2: Insert the tag</button>
+
+        <script>
+
+            // PROMISES
+            function delayer(time) {
+                return new Promise(function(resolve) {
+                    return setTimeout(resolve, time);
+                });
+            }
+            function logHi() {
+                console.log('Hi');
+            }
+            delayer(5000).then(logHi);
+            
+            new Promise(function(resolve, reject) {
+            setTimeout(() => resolve(1), 2000);
+
+            }).then((result) => {
+              alert(result);
+              return result + 2;
+            }).then((result) => {
+              alert(result);
+              return result + 2;
+            }).then((result) => {
+              alert(result);
+              return result + 2;
+              
+            });
+
+        </script>
+    </body>
+
+
+
+</html>
+
+
+
