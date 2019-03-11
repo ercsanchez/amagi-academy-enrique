@@ -16,7 +16,7 @@ let changeObj = (d) => {
 };
 
 var c = {};
-c.prop1 == {};
+c.prop1 = {};
 console.log(c);
 
 // this changes c.prop1 from an empty object to a function expression because d and c points to the same memory location 
