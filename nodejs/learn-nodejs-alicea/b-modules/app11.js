@@ -1,6 +1,6 @@
 // 028 Requiring native core modules
 
-// no need to specify the path (./) or the file extension (.js) when you are requiring core modules
+// do not specify the path (./) and the file extension (.js) when you are requiring Node's core modules
 const util = require('util');
 // when you specify ./, you are saying its in the local directory and not a core module
 
