@@ -6,7 +6,7 @@ const util = require('util');
 function Greeter() {
     // any object created using the Greeter constructor will also be passed to the EventEmitter constructor, which attaches its "own" properties to the object thereby inheriting EventEmitter's "own" properties and not just its prototype properties
     EventEmitter.call(this);  // "this" keyword in EventEmitter now also points to the objects created by the Greeter constructor
-    // equivalent to a superconstructor
+    // equivalent to a superconstructor in other languages
 
     this.greeting = "Hello!";
 }

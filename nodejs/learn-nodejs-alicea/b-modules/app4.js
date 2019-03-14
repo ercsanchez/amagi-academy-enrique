@@ -38,3 +38,4 @@ jane.greet();
 // to see what are the actual prototype objects attached to an object
 console.log(john.__proto__);
 console.log(jane.__proto__);
+console.log(john.__proto__===jane.__proto__);
