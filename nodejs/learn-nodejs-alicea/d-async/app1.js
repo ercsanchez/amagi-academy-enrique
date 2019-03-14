@@ -1,27 +1,23 @@
+// 047 Buffers
 
-// example of promise
-let amount = 1500;
-let sleep = new Promise( (resolve, reject) => {
-    if (amount<=500) {
-        return reject('You slept to quick.');
-    } else {
-        setTimeout( () => resolve(`Slept for ${amount}.`), amount);
-    }
-});
-function getSleep() {
-    return sleep;
-}
-getSleep().then((result) => console.log(result));
+// create a new buffer
+const buffer = new Buffer('Hello', 'utf8');
+// take 'hello' string, convert it to unicode char set, and then convert that into binary data using UTF-8 char encoding 
 
-// better example with error
-function sleep2(time) {
-    return new Promise( (resolve, reject) => {
-        if (time <= 500) {
-            return reject(new Error(`You slept too short`));
-        } else {
-            // setTimeout( () => { return resolve(`Slept for ${time}.`) }, time ); 
-            setTimeout( () => resolve(`Slept for ${time}.`), time);
-        }
-    });
-}
-sleep2(500).then( (result) => console.log(result) ).catch( (err) => console.log(err.message) );
+// outputs binary of buffer into hexadecimal notation 
+console.log(buffer);
+console.log(buffer[0]);
+
+// outputs buffer data into string; does not convert binary data inside buffer
+console.log(buffer.toString());
+
+// outputs buffer data into JSON format; chars are in base 10 notation
+console.log(buffer.toJSON());
+
+// read a single code point; outputs binary data in base 10 notation
+console.log(buffer[0]);
+
+// write data into the buffer
+buffer.write('work');
+console.log(buffer.toString());
+// 'work' overwrote 'Hell' characters of 'Hello'
