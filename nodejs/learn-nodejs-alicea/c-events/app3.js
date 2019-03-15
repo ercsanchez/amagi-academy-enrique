@@ -32,4 +32,3 @@ console.log('Hello! This is the greet event.')
 
 // manually tell the app that the greet event has happened 
 emitter1.emit(events.GREET);
-
