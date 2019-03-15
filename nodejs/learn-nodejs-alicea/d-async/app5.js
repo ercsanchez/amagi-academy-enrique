@@ -7,7 +7,7 @@ const fs = require('fs');
 // // or fs.createReadStream(__dirname + '/app5-file.txt', 'utf8');
 
 // WRITABLE STREAM - to write data into a file
-const writable = fs.createWriteStream(__dirname + '/app5-filecopy.txt', {encoding: 'utf8', highWaterMark: 64 * 1024 } );
+const writable = fs.createWriteStream(__dirname + '/app5-filecopy.txt', {encoding: 'utf8', highWaterMark: 64 * 1024 } ); // default values
 // when it receives a chunk, it will simply write it to the file
 
 // event listener
@@ -19,6 +19,8 @@ const writable = fs.createWriteStream(__dirname + '/app5-filecopy.txt', {encodin
 // if text file is bigger than the buffer, then you get chunks (equal to buffer size) of the data at a time 
 // each time a buffer is filled, it will emit the data event, pass the contents of the buffer to the listener functions 
 // and run them, repeating this cycle until the entire file has been read
+
+// no need for event emitter because .emit is already inside of readable stream object and will be emitted automatically
 
 // to output buffer content (hexadecimal notation) and to see the number of buffer objects or chunks processed, remove char encoding 
 const readable2 = fs.createReadStream(__dirname + '/app5-file.txt', { highWaterMark: 32 * 1024 } );

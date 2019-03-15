@@ -1,3 +1,5 @@
+// 018 Let's build a module
+
 // this is the greet file/module
 
 // module encapsulates code and code in the module doesn't affect rest of code in main .js file (app2.js)
