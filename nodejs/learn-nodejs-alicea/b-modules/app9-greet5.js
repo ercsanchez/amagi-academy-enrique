@@ -1,3 +1,5 @@
+// 026 Module patterns
+
 // Pattern 5: revealing module pattern
 
 const greeting = "This is module pattern 5.";

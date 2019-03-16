@@ -1,3 +1,5 @@
+// 061 Streams and performance
+
 const http = require('http');
 const fs = require('fs');
 
@@ -18,6 +20,5 @@ http.createServer( (req, res) => {
     // stream:
     fs.createReadStream(__dirname + '/index.html', 'utf8').pipe(res);
     //custom stream to modify data as it is being sent to the client - llok for 3rd party modules that do this
-
     
-}).listen(1337, '127.0.0.1');
+}).listen(3000, '127.0.0.1', () => console.log(`server listening`) );

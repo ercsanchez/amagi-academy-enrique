@@ -1,3 +1,4 @@
+// 026 Module patterns
 
 // Pattern 2: add a property
 module.exports.greet = function() {

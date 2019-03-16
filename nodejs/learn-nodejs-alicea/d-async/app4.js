@@ -6,7 +6,7 @@ const fs = require('fs');
 console.log(__dirname);
 
 // fs.readFileSync() - synchronous method on the fs object
-// 1st param: location and name of file; 2nd param: char encoding (utf-8 by default so no need to specify)
+// 1st param: location and name of file; 2nd param: char encoding (utf-8 by default so no need to specify unless you want to console.log the actual string content of the buffer from readFileSync)
 const greet = fs.readFileSync(__dirname + '/app4-greet.txt', 'utf-8'); // utf8 or utf-8 
 console.log(greet);
 

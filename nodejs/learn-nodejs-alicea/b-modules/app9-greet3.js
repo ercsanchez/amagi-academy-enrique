@@ -1,3 +1,4 @@
+// 026 Module patterns
 
 // Pattern 3: overwrite with your own object
 function Greeter() {

@@ -1,3 +1,5 @@
+// 027 Exports vs. module.exports
+
 // using exports (shorthand) instead of module.exports
 
 exports.greet = function() {

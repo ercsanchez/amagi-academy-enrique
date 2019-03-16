@@ -1,3 +1,4 @@
+// 026 Module patterns
 
 // Pattern 4: overwrite with a constructor 
 function Greeter(num) {

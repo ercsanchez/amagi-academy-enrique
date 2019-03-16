@@ -1,10 +1,11 @@
+// 064 Routing
 
 // in previous examples, any path that i go to, will give me the same data, since we aren't even looking at the URL in the request
-
 const http = require('http');
 const fs = require('fs');
 
 http.createServer( (req, res) => {
+    
     // routing
     if (req.url === '/') {
         fs.createReadStream (__dirname + '/index.html').pipe(res);
@@ -21,4 +22,4 @@ http.createServer( (req, res) => {
         res.end();
     }
 
-}).listen(1337, '127.0.0.1');
+}).listen(3000, '127.0.0.1', () => console.log(`server listening`) );
