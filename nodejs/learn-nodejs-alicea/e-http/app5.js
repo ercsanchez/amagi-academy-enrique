@@ -9,7 +9,7 @@ http.createServer( (req, res) => {
     // routing
     if (req.url === '/') {
         fs.createReadStream (__dirname + '/index.html').pipe(res);
-    } else if (req.url === '/api') {
+    } else if (req.url === '/endpoint') {
         res.writeHead( 200, { 'Content-Type': 'application/json' } );
         let obj = {
             firstname: 'John', 

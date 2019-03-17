@@ -1,0 +1,15 @@
+{
+  "name": "g-express",
+  "version": "1.0.0",
+  "description": "Test app for 09 Express of Learn and Understand NodeJS - Anthony Alicea",
+  "main": "app1.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
