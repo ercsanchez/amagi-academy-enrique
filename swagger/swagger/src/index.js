@@ -23,7 +23,7 @@ for (const routes of [
     registerRoute, 
     loginRoute
 ]){
-    routes(router)
+    routes(router);
 }
 
 app.use('/', swaggerUi.serve)

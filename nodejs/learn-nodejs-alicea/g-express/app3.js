@@ -47,6 +47,7 @@ app.get('/', function (req, res) {
         <html>
             <head>
                 <link href=/assets/style.css type=text/css rel=stylesheet />
+            <head/>
             <body>
                 <h1>Hello World!</h1>
             </body>
@@ -63,7 +64,15 @@ app.get('/', function (req, res) {
 // pattern: /:id tells express that id is a variable 
 app.get('/person/:id', function (req, res) {
     // params is a property (object) of the req object; id is a property of params object
-    res.send('<html><body><h1>Person: ' + req.params.id + '</h1></body></html>');
+    res.send(`
+        <html>
+            <head>
+                <link href=/assets/style.css type=text/css rel=stylesheet />
+            <head/>
+            <body>
+                <h1>Person: ${req.params.id}</h1>
+            </body>
+        </html>`);
 });
 
 // route api endpoint - send JS object and output it as JSON on the client

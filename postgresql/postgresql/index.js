@@ -60,7 +60,7 @@ app.listen(8000, console.log('Server listening on 8000'));
 // turn on postgres
 // connect to postgres
 // test API calls (curl  || Postman)
-// create a delete route/model
+// create a delete route for model
 
 /*
 container = environment

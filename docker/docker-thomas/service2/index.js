@@ -5,8 +5,6 @@ import * as swagger from 'swagger2'
 
 import { user as userRoute } from './routes/user'
 
-
-
 const app = express()
 const router = express.Router()
 

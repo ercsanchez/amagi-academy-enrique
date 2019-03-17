@@ -2,7 +2,7 @@
 
 const http = require('http');
 
-// .createServer returns a Server object that takes in a callback (turned into an event listener function because it inherits from EventEmitter object of 'events' module), 
+// .createServer returns a Server object that takes in a callback (turned into an event listener function because it inherits from EventEmitter object of 'events' module)
 // waits for a system event (client/browser request), to be given by http-parser of http module
 // Server object will emit the 'request' event and pass req and res objects to listener function
 // req - request; res - represents the stream where you can send the response
