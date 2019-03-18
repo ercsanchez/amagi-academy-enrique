@@ -33,5 +33,4 @@ router.get('/swagger.json', (req, res) => {
 })
 
 app.use('/v1', router)
-
 app.listen(5000, () => console.log(`listening on 5000`))

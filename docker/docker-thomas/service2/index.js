@@ -10,7 +10,7 @@ const router = express.Router()
 
 app.use(bodyparser())
 
-const spec = swagger.loadDocumentSync('./src/swagger.yaml')
+const spec = swagger.loadDocumentSync('./swagger.yaml')
 
 if (!swagger.validateDocument(spec)) {
     throw Error(`Invalid Swagger File`);

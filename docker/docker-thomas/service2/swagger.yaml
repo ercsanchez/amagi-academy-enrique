@@ -12,19 +12,18 @@ produces:
 schemes:
   - http
   - https
-
 paths:
   '/swagger.json': 
-  get:
-    tags:
-      -Spec
-    operationID: retrieveSpec
-    description: Retrieve OpenAPIS spec.
-    responses:
-    '200':
-      description: Successful
-      schema:
-        type: object
+    get:
+      tags:
+        -Spec
+      operationID: retrieveSpec
+      description: Retrieve OpenAPIS spec.
+      responses:
+        '200':
+          description: Successful
+          schema:
+            type: object
   '/user/{email}': 
     get:
       description: Get user
@@ -46,10 +45,10 @@ paths:
           description: Unexpected error
           schema:
             type: object
+
 parameters:
   email:
     name: email
     in: path
     required: true
     type: string
-

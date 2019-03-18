@@ -12,23 +12,22 @@ produces:
 schemes:
   - http
   - https
-
 paths:
   '/swagger.json': 
-  get:
-    tags:
-      -Spec
-    operationID: retrieveSpec
-    description: Retrieve OpenAPIS spec.
-    responses:
-    '200':
-      description: Successful
-      schema:
-        type: object
+    get:
+      tags:
+        - Spec
+      # operationID: retrieveSpec
+      description: Retrieve OpenAPIS spec.
+      responses:
+        '200':
+          description: Successful
+          schema:
+            type: object
   '/register': 
     post:
       description: Admin registers new user
-      operationID: adminRegisterUser
+      # operationID: adminRegisterUser
       tags:
         - Register
       parameters:
@@ -53,7 +52,7 @@ paths:
   '/login':
     post:
       description: User signs in
-      operationID: adminSignIn
+      # operationID: adminSignIn
       tags:
         - Signin
       parameters:
@@ -84,7 +83,7 @@ definitions:
     properties:
       email:
         type: string
-  UserRegisterBase:
+  UserSignInBase:
     required:
       - email
       - password
