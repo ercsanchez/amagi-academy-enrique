@@ -147,49 +147,7 @@ homework:
     </body>
 </html> -->
 
-<html>
-    <head>
-    </head>
-    <body>
-        <p>Input 1: How many Tags?</p>
-        <input id="input1">
-        <button id="button1">Button 1: Add a tag</button>
-        <button id="button2">Button 2: Insert the tag</button>
 
-        <script>
-
-            // PROMISES
-            function delayer(time) {
-                return new Promise(function(resolve) {
-                    return setTimeout(resolve, time);
-                });
-            }
-            function logHi() {
-                console.log('Hi');
-            }
-            delayer(5000).then(logHi);
-            
-            new Promise(function(resolve, reject) {
-            setTimeout(() => resolve(1), 2000);
-
-            }).then((result) => {
-              alert(result);
-              return result + 2;
-            }).then((result) => {
-              alert(result);
-              return result + 2;
-            }).then((result) => {
-              alert(result);
-              return result + 2;
-              
-            });
-
-        </script>
-    </body>
-
-
-
-</html>
 
 
 
