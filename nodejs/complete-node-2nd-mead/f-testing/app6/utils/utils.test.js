@@ -1,4 +1,4 @@
-// 057 Organizing test with describe()
+// 058 Test spies
 
 const expect = require('expect');
 const utils = require('./utils');

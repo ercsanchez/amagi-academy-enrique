@@ -1,6 +1,5 @@
 // 054 Testing asynchronous code
 
-
 const expect = require('expect');
 const utils = require('./utils');
 

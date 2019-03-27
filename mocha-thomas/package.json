@@ -1,0 +1,19 @@
+{
+    "name": "mocha",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+      "start": "node index.js",
+      "test": "NODE_ENV=testing ./node_modules/.bin/mocha test"
+    },
+    "dependencies": {
+      "express": "^4.16.4"
+    },
+    "devDependencies": {
+      "chai": "^4.2.0",
+      "mocha": "^5.2.0",
+      "request": "^2.88.0",
+      "supertest": "^3.4.2"
+    }
+  }

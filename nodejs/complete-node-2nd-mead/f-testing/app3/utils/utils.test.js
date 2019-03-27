@@ -1,6 +1,5 @@
 // 054 Testing asynchronous code
 
-
 const expect = require('expect');
 const utils = require('./utils');
 
@@ -26,8 +25,9 @@ it('should asyncAdd two numbers', (done) => {
     });
 }); 
 
+// trying to code the async function another way: this doesn't work
 // it('2nd: should asyncAdd2 two numbers', (done) => {
-//     let result = utils.asyncAdd2(4, 3);
+//     let result = utils.asyncAdd2(4, 3, (a, b) => a + b );
 //     expect(result).toBe(7).toBeA('number');
 //     done();
 // }); 

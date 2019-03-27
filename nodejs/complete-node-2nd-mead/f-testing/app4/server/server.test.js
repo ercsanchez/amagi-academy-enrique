@@ -1,6 +1,7 @@
+// 056 Testing express applications part II
+
 const request = require('supertest');
 const expect = require('expect');
-
 
 const app = require('./server.js').app;
 
@@ -25,6 +26,8 @@ it('should return hello world response', (done) => {
 // assert status code of 200
 // assert that you exist in users array
 
+// verifies that when we make an http get request to the '/users' URL, we get an 
+// array that includes an object containing my user name and age properties
 it('should return a user array containing your user name and age', (done) => {
     request(app)
         .get('/users')

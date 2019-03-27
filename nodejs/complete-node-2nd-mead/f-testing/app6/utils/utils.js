@@ -1,4 +1,4 @@
-// 054 Testing asynchronous code
+// 058 Test spies
 
 module.exports.add = (a,b) => a + b;
 
@@ -8,10 +8,6 @@ module.exports.asyncAdd = (a, b, callback) => {
     }, 1000); 
 };
 // by default, mocha returns a fail for tests that take longer than 1 second so use 1000 for setTimeout
-
-// module.exports.asyncAdd2 = (a, b, callback) => {
-//     callback(a, b);
-// };
 
 module.exports.square = (x) => x * x;
 
@@ -28,4 +24,3 @@ module.exports.setName = (user, fullName) => {
     user.lastName = names[1];
     return user;
 };
-
