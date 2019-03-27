@@ -1,0 +1,13 @@
+{
+  "name": "f-testing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha **/*.test.js",
+    "test-watch": "nodemon --exec 'yarn test'"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^6.0.2"
+  }
+}

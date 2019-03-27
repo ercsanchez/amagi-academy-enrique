@@ -1,0 +1,52 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js test
+
+PATH: 
+  /home/enrique/Desktop/amagi-academy-enrique/nodejs/complete-node-2nd-mead/f-testing/node_modules/.bin:/tmp/yarn--1553645612802-0.9444456041698699:/home/enrique/Desktop/amagi-academy-enrique/nodejs/complete-node-2nd-mead/f-testing/node_modules/.bin:/home/enrique/.config/yarn/link/node_modules/.bin:/home/enrique/.yarn/bin:/usr/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/lib/node_modules/npm/bin/node-gyp-bin:/usr/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  10.15.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EIO: i/o error, write
+      at writeSync (fs.js:568:3)
+      at SyncWriteStream._write (internal/fs/sync_write_stream.js:22:3)
+      at doWrite (_stream_writable.js:410:12)
+      at writeOrBuffer (_stream_writable.js:394:5)
+      at SyncWriteStream.Writable.write (_stream_writable.js:294:11)
+      at ConsoleReporter._log (/usr/share/yarn/lib/cli.js:95954:17)
+      at ConsoleReporter.log (/usr/share/yarn/lib/cli.js:95942:10)
+      at ConsoleReporter.command (/usr/share/yarn/lib/cli.js:95971:10)
+      at /usr/share/yarn/lib/cli.js:36895:16
+      at Generator.next (<anonymous>)
+
+npm manifest: 
+  {
+    "name": "notes-node",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Enrique Sanchez",
+    "license": "ISC",
+    "dependencies": {
+      "lodash": "^4.17.11"
+    },
+    "devDependencies": {
+      "eslint": "^5.14.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
