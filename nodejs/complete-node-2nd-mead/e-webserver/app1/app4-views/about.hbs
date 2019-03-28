@@ -1,0 +1,17 @@
+{{!-- template for your about page --}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- charset which determines how browser renders the chars in our html -->
+        <meta charset="utf-8">
+        <!-- title tag: what is placed in the tab -->
+        <title>Some Website</title>
+    </head>
+    <body>
+        {{!-- inject a template - uses a > symbol and partial's filename; 
+        no need to indicate .hbs ext. --}}
+        {{> header}}
+
+        {{> footer}}
+    </body>
+</html>

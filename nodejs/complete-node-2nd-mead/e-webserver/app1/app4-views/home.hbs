@@ -1,0 +1,25 @@
+{{!-- template for your homepage or root path/route --}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- charset which determines how browser renders the chars in our html -->
+        <meta charset="utf-8">
+        <!-- title tag: what is placed in the tab -->
+        <title>Some Website</title>
+    </head>
+    <body>
+        {{!-- inject a template/partial - uses a > symbol and partial's filename w/o ext.; 
+        do not indicate .hbs ext. --}}
+        {{> header}}
+
+        {{!-- inject some data --}}
+
+        {{!-- to pass values to a helper (function) use spaces (not parens) 
+        then the data; >1 argument should also be separated by spaces --}}
+        <p>{{capitalize welcomeMessage}}</p>
+
+        {{!-- inject a template/partial - uses a > symbol and partial's filename w/o ext.; 
+        do not indicate .hbs ext. --}}
+        {{> footer}}
+    </body>
+</html>

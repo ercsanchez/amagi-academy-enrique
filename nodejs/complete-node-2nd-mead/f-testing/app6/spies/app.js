@@ -9,6 +9,6 @@ module.exports.handleSignup = (email, password) => {
         password
     });
     // ES6 syntax: instead of having to use { email: email, password: password }
-
+    
     // Send the welcome email
 }
