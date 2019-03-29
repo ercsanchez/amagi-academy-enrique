@@ -11,15 +11,16 @@ const port =  process.env.PORT || 3000;
 
 // mapping routes and http verbs to functions (listener functions)
 
-// middleware - between the request and response; filters the response and gives the appropriate response (e.g. sending required static files for the homepage)
+// middleware - between the request and response; filters the request and gives the appropriate response (e.g. sending required static files for the homepage)
 
 // first match the routes with the public folder (on your computer or web server) holding the static files or assets
 
 // remember that browser references static files using the folder structure, using URL/folder-name/styles.css in the link tag in an html document
-// browser doesn't see folder structure of your app in your computer or server; it only understands the context of the req and res
+// browser doesn't see folder structure of your app in your computer or server; it only understands the context of the req and res.
 // /assets could be any name you want because you make the link to the folder using app.use
 app.use('/assets', express.static(__dirname + '/public'));
-// app.use appends the endpoint '/assets' to the homepage/root URL and links that endpoint to the public folder so any file-name after /assets/ will be searched in the public folder
+// app.use appends the endpoint '/assets' to the homepage/root URL and links that endpoint to 
+// the public folder so any file-name after /assets/ will be searched in the public folder
 // any file in public folder will be sent as a response by referencing /assets/file-name-in-public-folder
 // app.use streams the file in the __dirname/public folder as a response whenever any request specifies '/assets/file-name-in-public-folder'
 
@@ -32,7 +33,7 @@ app.use('/', function(req, res, next) {
     // only app.use can use next(); app.get, app.post, etc. don't need the next() function because they are considered as one middleware component and usually coded after app.use
     next();
     // app.get - is also middleware, if you think about it, because you are catching the request and doing something before a 
-    // response is set (something in between request and response layer), that is why you need to call next() function
+    // response is set (something in between request and response layer), that is why you need to call next() function to get to app.get
 });
 
 // homepage endpoint - send html
@@ -49,7 +50,7 @@ app.get('/', function (req, res) {
                 <link href=/assets/style.css type=text/css rel=stylesheet />
             <head/>
             <body>
-                <h1>Hello World!</h1>
+                <h1>Home Page</h1>
             </body>
         </html>
     `);

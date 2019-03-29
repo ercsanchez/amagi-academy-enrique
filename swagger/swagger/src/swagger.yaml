@@ -64,7 +64,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/UserSigninBase'
+            $ref: '#/definitions/UserSignInBase'
       responses:
         '200':
           description: User is signedin
@@ -93,7 +93,7 @@ definitions:
         type: string
       userId:
         type: string
-  UserSigninBase:
+  UserSignInBase:
     required:
       - email
       - password

@@ -1,16 +1,13 @@
 import axios from 'axios'
 // promise based
 
-
 export function routes(router) {
     router
         .post('/login', async (req, res) => {
             const response = await axios({
                 method: 'get',
-                // url: `http://localhost:9000/`
-                url: `postgres://postgres1@localhost:5432/academy`
+                url: `http://localhost:5000/login`
             });
-            console.log(response);
             res.json(response.data);
         });
 }

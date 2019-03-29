@@ -23,8 +23,7 @@ const app = new koa();
 app.use(jsonBody())
     .use(postgresMiddleware(schema));
 
-
-
+// express code not used
 // app.use(bodyparser())
 
 //load this before anything else
@@ -71,7 +70,6 @@ router
         ctx.body = data;
     });
 
-
 // check if swagger file is valid
 if (!swagger.validateDocument(spec)) {
     throw Error(`Invalid Swagger File`)
@@ -83,21 +81,16 @@ if (!swagger.validateDocument(spec)) {
 //     routes(router)
 // }
 
-
-
-// app.use('/', swaggerUi.serve)
-// app.get('/', swaggerUi.setup(spec))
 router.get('/swagger.json', (ctx) => {
     ctx.body = spec;
 })
 
-
-
-
+// express code not used
+// app.use('/', swaggerUi.serve)
+// app.get('/', swaggerUi.setup(spec))
 // app.use(validate(spec));
-
-
 //app.use('/v1', router)
+
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(ui(spec));
