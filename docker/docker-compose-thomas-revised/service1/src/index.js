@@ -6,10 +6,13 @@ import * as swagger from 'swagger2';
 import { routes as registerRoute } from './routes/register';
 import { routes as loginRoute } from './routes/login';
 
+import { postgresMiddleware } from './postgres'
+import { schema } from './model'
+
 const app = express();
 const router = express.Router();
 
-app.use(bodyparser());
+app.use(bodyparser()).use(postgresMiddleware(schema));
 
 const spec = swagger.loadDocumentSync('./src/swagger.yaml');
 
@@ -24,6 +27,7 @@ for (const routes of [
     routes(router)
 }
 
+// SWAGGER
 app.use('/', swaggerUi.serve);
 app.get('/', swaggerUi.setup(spec));
 router.get('/swagger.json', (req, res) => {
@@ -33,5 +37,4 @@ router.get('/swagger.json', (req, res) => {
 app.use('/v1', router);
 
 const PORT = 5000;
-
 app.listen(PORT, () => console.log(`service1 listening on ${PORT}`))

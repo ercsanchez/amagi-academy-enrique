@@ -4,6 +4,7 @@ export function routes(router) {
             res.json({
                 name: `Enrique Sanchez`,
                 address: `Makati City`,
+                // password: ' ', not needed???
                 email: req.params.email
             })
         })

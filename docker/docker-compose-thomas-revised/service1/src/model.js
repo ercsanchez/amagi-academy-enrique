@@ -1,8 +1,11 @@
+
+
 export const schema = {
     create: [`CREATE TABLE users(
                 id BIGSERIAL PRIMARY KEY, 
                 name TEXT,
                 address TEXT,
+                password TEXT,
                 email TEXT
             )`
     ],
@@ -11,28 +14,9 @@ export const schema = {
     ]
 }
 export async function insert(pg, data) {
-    const values = JSON.stringify(data);
+    const values = data;
+    console.log(`schema values: ${JSON.stringify(values)}`);
     return pg.rows(
-        `INSERT INTO cards(details) VALUES ($1) returning id`, values
+        `INSERT INTO users(name, address, password, email) VALUES ($1, $2, $3, $4) returning id`, values.name, values.address, values.password, values.email
     );
 }
-// export async function retrieveAll(pg) {
-//     return pg.rows( 
-//         `SELECT id, details from cards`
-//     )
-// }
-export async function retrieve(pg, id) {
-    return pg.rows( 
-        `SELECT details->'name' as name from cards where id = $1`, id 
-    )
-}
-
-// export async function update(pg, data, id) {
-//     return pg.rows(`UPDATE cards SET details = $1 WHERE id = $2`, data, id );
-// }
-// export async function remove(pg, id) {
-//     return pg.rows(`DELETE FROM cards WHERE id = $1`, id);
-// }
-// export async function removeAll(pg) {
-//     return pg.rows(`DELETE FROM cards`);
-// }

@@ -18,7 +18,7 @@ paths:
       tags:
         - Spec
       # operationID: retrieveSpec
-      description: Retrieve OpenAPIS spec.
+      description: Retrieve OpenAPI spec.
       responses:
         '200':
           description: Successful
@@ -26,7 +26,7 @@ paths:
             type: object
   '/register': 
     post:
-      description: Admin registers new user
+      description: Admin registers a new user
       # operationID: adminRegisterUser
       tags:
         - Register
@@ -79,17 +79,25 @@ definitions:
   UserRegisterBase:
     required:
       - email
-    type: object
-    properties:
-      email:
-        type: string
-  UserSignInBase:
-    required:
-      - email
       - password
+      - userId
     type: object
     properties:
-      email:
-        type: string   
+      name:
+        type: string
+      address:
+        type: string
       password:
         type: string 
+      email:
+        type: string   
+  UserSignInBase:
+    required:
+      - password
+      - email
+    type: object
+    properties:
+      password:
+        type: string 
+      email:
+        type: string   
