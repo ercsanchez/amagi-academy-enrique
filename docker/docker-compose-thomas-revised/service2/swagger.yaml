@@ -1,0 +1,56 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Node with Docker
+  license:
+    name: Proprietary
+basePath: /v1
+consumes:
+  - application/json
+produces:
+  - application/json
+schemes:
+  - http
+  - https
+paths:
+  '/swagger.json': 
+    get:
+      tags:
+        - Spec
+      # operationID: retrieveSpec
+      description: Retrieve OpenAPI spec.
+      responses:
+        '200':
+          description: Successful
+          schema:
+            type: object
+  '/user{email}': 
+    get:
+      description: Get a user
+      # operationID: getUser
+      tags:
+        - Get a user
+      parameters:
+        - $ref: '#/parameters/email'
+      responses:
+        '200':
+          description: User details queried
+          schema:
+            type: object
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+        default:
+          description: Unexpected error
+          schema:
+            type: object
+
+parameters:
+  email:
+    name: email
+    in: path
+    required: true
+    type: string
+
+

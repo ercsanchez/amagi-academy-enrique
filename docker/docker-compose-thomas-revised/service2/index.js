@@ -3,7 +3,7 @@ import swaggerUi from 'swagger-ui-express'
 import bodyparser from 'body-parser'
 import * as swagger from 'swagger2'
 
-import { user as userRoute } from './routes/user'
+import { routes as userRoute } from './routes/user'
 
 const app = express()
 const router = express.Router()
@@ -29,4 +29,6 @@ router.get('/swagger.json', (req, res) => {
 })
 
 app.use('/v1', router)
-app.listen(8000, () => console.log(`service2 listening on 8000`))
+
+const PORT = 5000;
+app.listen(PORT, () => console.log(`service2 listening on ${PORT}`))

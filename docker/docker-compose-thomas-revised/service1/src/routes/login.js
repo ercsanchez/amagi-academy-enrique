@@ -7,10 +7,10 @@ export function routes(router) {
         .post('/login', async (req, res) => {
             const response = await axios({
                 method: 'get',
-                // url: `http://localhost:9000/`
-                url: `postgres://postgres@localhost:5432/academy`
+                url: `http://localhost:5000/v1/user/${req.body.email}`
+                // url: `postgres://postgres@localhost:5432/academy`
             });
-            console.log(response);
+            
             res.json(response.data);
         });
 }

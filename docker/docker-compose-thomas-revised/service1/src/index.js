@@ -36,5 +36,5 @@ router.get('/swagger.json', (req, res) => {
 
 app.use('/v1', router);
 
-const PORT = 5000;
+const PORT = 3000;
 app.listen(PORT, () => console.log(`service1 listening on ${PORT}`))

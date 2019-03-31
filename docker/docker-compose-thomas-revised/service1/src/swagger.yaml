@@ -78,9 +78,10 @@ paths:
 definitions:
   UserRegisterBase:
     required:
-      - email
+      - name
+      - address
       - password
-      - userId
+      - email
     type: object
     properties:
       name:
