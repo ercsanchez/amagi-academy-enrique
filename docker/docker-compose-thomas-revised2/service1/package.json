@@ -1,12 +1,13 @@
 {
-  "name": "node-datastorage-service",
+  "name": "node-client-api",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js --exec babel-node --dev"
+    "start": "nodemon src/index.js --exec babel-node --dev"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "once": "^1.4.0",

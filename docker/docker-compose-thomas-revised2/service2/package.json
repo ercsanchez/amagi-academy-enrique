@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js --exec babel-node --dev"
+    "start": "nodemon index.js --exec babel-node --dev",
+    "test": "NODE_ENV=testing ./node_modules/.bin/mocha **/*.spec.js",
+    "test-watch": "nodemon 'yarn test' --exec babel-node --dev"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -23,8 +25,11 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.2.0",
     "eslint": "^5.1.0",
     "eslint-plugin-babel": "^5.1.0",
-    "nodemon": "^1.18.3"
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.3",
+    "request": "^2.88.0"
   }
 }

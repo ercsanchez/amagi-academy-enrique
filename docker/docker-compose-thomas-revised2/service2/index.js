@@ -5,14 +5,13 @@ import * as swagger from 'swagger2'
 
 import { routes as userRoute } from './routes/user'
 
-// import { postgresMiddleware } from './postgres'
-// import { schema } from './model'
+import { postgresMiddleware } from './postgres'
+import { schema } from './model'
 
 const app = express()
 const router = express.Router()
 
-app.use(bodyparser())
-    //.use(postgresMiddleware(schema));
+app.use(bodyparser()).use(postgresMiddleware(schema));
 
 const spec = swagger.loadDocumentSync('./swagger.yaml')
 

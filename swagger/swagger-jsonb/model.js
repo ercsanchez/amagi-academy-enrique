@@ -21,7 +21,7 @@ export async function retrieveAll(pg) {
 }
 export async function retrieve(pg, id) {
     return pg.rows( 
-        `SELECT details->'name' as name from cards where id = $1`, id 
+        `SELECT details->'name' as name FROM cards WHERE id = $1`, id 
     )
 }
 

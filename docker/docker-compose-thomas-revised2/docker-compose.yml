@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  service1:
+    build:
+      context: ${PWD}/service1
+      dockerfile: ${PWD}/service1/Dockerfile
+    volumes:
+      - ${PWD}/service1:/app
+    ports:
+      - 5000:5000
+    restart: always
+  service2:
+    build:
+      context: ${PWD}/service2
+      dockerfile: ${PWD}/service2/Dockerfile
+    volumes:
+      - ${PWD}/service2:/app
+    ports:
+      - 8000:8000
+    restart: always  
+  
+volumes:
+  conf-data:
+
+  
