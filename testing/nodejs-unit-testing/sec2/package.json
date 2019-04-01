@@ -1,0 +1,15 @@
+{
+  "name": "sec2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=development mocha './**/*.test.js'",
+    "test-watch": "nodemon --exec 'yarn test'"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "mocha": "^6.0.2"
+  }
+}

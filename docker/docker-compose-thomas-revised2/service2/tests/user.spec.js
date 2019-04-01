@@ -10,6 +10,5 @@ describe('Status and Content', () => {
                 done();
             });
         });
-       
     });
 });
