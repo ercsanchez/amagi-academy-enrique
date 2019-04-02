@@ -35,3 +35,5 @@ app.use('/v1', router)
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`service2 listening on ${PORT}`))
+
+module.exports = app;
