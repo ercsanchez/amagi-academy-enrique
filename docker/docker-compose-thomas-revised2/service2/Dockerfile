@@ -1,7 +1,7 @@
-FROM node:8.4-alpine
+FROM node:8.15-alpine
 WORKDIR /app
 COPY package.json /app
-RUN npm install
+RUN yarn install
 COPY . /app
 CMD yarn start
-EXPOSE 3001 
+EXPOSE 5000

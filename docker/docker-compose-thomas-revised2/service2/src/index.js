@@ -13,7 +13,7 @@ const router = express.Router()
 
 app.use(bodyparser()).use(postgresMiddleware(schema));
 
-const spec = swagger.loadDocumentSync('./swagger.yaml')
+const spec = swagger.loadDocumentSync('./src/swagger.yaml')
 
 if (!swagger.validateDocument(spec)) {
     throw Error(`Invalid Swagger File`);

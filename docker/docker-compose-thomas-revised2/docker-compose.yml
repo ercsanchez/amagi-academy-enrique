@@ -8,7 +8,7 @@ services:
     volumes:
       - ${PWD}/service1:/app
     ports:
-      - 5000:5000
+      - 3000:3000
     restart: always
   service2:
     build:
@@ -17,9 +17,9 @@ services:
     volumes:
       - ${PWD}/service2:/app
     ports:
-      - 8000:8000
+      - 5000:5000
     restart: always  
-  
+
 volumes:
   conf-data:
 
