@@ -1,24 +1,30 @@
 version: "3"
 
 services:
+
   service1:
     build:
-      context: ${PWD}/service1
-      dockerfile: ${PWD}/service1/Dockerfile
+      context: ./service1
+      dockerfile: Dockerfile
     volumes:
-      - ${PWD}/service1:/app
+      - ./service1:/app
     ports:
       - 3000:3000
     restart: always
+
   service2:
     build:
-      context: ${PWD}/service2
-      dockerfile: ${PWD}/service2/Dockerfile
+      context: ./service2
+      dockerfile: Dockerfile
     volumes:
-      - ${PWD}/service2:/app
+      - ./service2:/app
     ports:
       - 5000:5000
     restart: always  
+
+  postgresdb:
+    image: postgres:10.7-alpine
+    restart: always
 
 volumes:
   conf-data:
