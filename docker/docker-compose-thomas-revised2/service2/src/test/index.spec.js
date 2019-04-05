@@ -49,6 +49,7 @@ describe('/v1/register route: ', () => {
 
     // tests should not affect the database so use sinon.js (spies or stubs)?? - no need to do this; spin up a test db using containers
 
+    // use this as the format for all tests
     describe('/v1/user/:email', () => {
         it('should send results of get request', async () => {
             const res = await request(app)

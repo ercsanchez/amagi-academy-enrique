@@ -6,8 +6,10 @@ services:
     build:
       context: ./service1
       dockerfile: Dockerfile
+    depends_on:
+      - postgresdb
     volumes:
-      - ./service1:/app
+      - ./service1:/app/service1
     ports:
       - 3000:3000
     restart: always
@@ -16,8 +18,10 @@ services:
     build:
       context: ./service2
       dockerfile: Dockerfile
+    depends_on:
+      - postgresdb
     volumes:
-      - ./service2:/app
+      - ./service2:/app/service2
     ports:
       - 5000:5000
     restart: always  
@@ -25,8 +29,10 @@ services:
   postgresdb:
     image: postgres:10.7-alpine
     restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./volumes/postgresdb:/app/var/lib/postgresql/data
 
-volumes:
-  conf-data:
 
   

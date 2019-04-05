@@ -6,31 +6,42 @@ export function routes(router) {
         .post('/register', async (req, res) => {
             const data = req.body;
             const { name, address, password, email } = data;
+            console.log(`S2 input: /register route: ${JSON.stringify(data)}`);
             
-            console.log(`SERVICE2 input /register route: ${JSON.stringify(data)}`);
-            // status: 400 
+            // STATUS CODE: 400 
+
+            // check req.body
             if (typeof data === 'null') return res.status(400).send(`Input should not be null`);
             if (typeof data !== 'object') return res.status(400).send(`Input should be an object`);
             if (typeof data === 'undefined') return res.status(400).send(`Input should not be undefined`);
+
+            // check password field
             if (!password) return res.status(400).send(`Missing password entry`);
             if (typeof password !== 'string') return res.status(400).send(`Invalid data type for password`);
+            if (password.length < 8) return res.status(400).send(`Insufficient password length. Please enter at least 8 characters.`)
+            // regex for password - must contain one special char, one letter, one number, and at least one letter should be capitalized
+
+            // check email field
             if (!email) return res.status(400).json(`Missing email entry`);
             if (typeof email !== 'string') return res.status(400).send(`Invalid data type for email`);
-            // improvements: 
             // regex patterns for matching valid emails
-            // checking password length
-            // regex patterns for valid passwords (letters, number, special chars req'ts.)
+
+            // STATUS CODE: 200/206
             else {
-            // status: 200/206
                 try {
                     const id = await insert(postgres(req), data);
-                    console.log(`SERVICE2 output /register route: ${JSON.stringify(id[0])}`);
+                    console.log(`S2 output /register route: ${JSON.stringify(id[0])}`);
                     // add checking of data type for name and address
+                    if (typeof name) {
+                        return res.status(206).send(`User is registered but name is invalid`);
+                    }
+
+
                     if (!name || !address) {
-                    // status: 206 - lacking name and or address
+                    // STATUS: 206 - lacking name and/or address
                         return res.status(206).send(`User is registered but with incomplete information`);
                     } else {
-                    // status: 200 - complete information
+                    // STATUS: 200 - complete information
                         return res.status(200).send(`User is registered`);
                     }
                 } catch (err) {
