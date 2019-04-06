@@ -10,13 +10,13 @@ export function routes(router) {
             try {
                 let response = await axios({
                     method: 'post',
-                    // url: `http://localhost:5000/v1/register`,
-                    url: `http://172.17.0.4:5000/v1/register`,
+                    url: `http://localhost:5000/v1/register`,
+                    // url: `http://172.19.0.4:5000/v1/register`,
                     data: {
-                        name: name,
-                        address: address, 
-                        password: password, 
-                        email: email
+                        name,
+                        address, 
+                        password, 
+                        email
                     }
                 });
                 console.log(response.data);

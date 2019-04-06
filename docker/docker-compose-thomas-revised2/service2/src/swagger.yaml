@@ -51,12 +51,15 @@ paths:
             type: object    
   '/user/{email}': 
     get:
-      description: Get a user
-      # operationID: getUser
+      description: Gets a user by email
+      # operationID: getUserInfo
       tags:
-        - Get a user
+        - GetUser
       parameters:
-        - $ref: '#/parameters/email'
+        - name: email
+          in: path
+          required: true
+          type: string
       responses:
         '200':
           description: User details queried
@@ -70,29 +73,74 @@ paths:
           description: Unexpected error
           schema:
             type: object
+    put:
+      description: Update user's info
+      # operationID: updateUserInfo
+      tags:
+        - UpdateUser
+      parameters:
+        - name: email 
+          in: path
+          required: true
+          type: string
+        - name: user
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UserUpdateBase'
+      responses:
+        '200':
+          description: User info updated
+          schema:
+            type: object
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+        default:
+          description: Unexpected error
+          schema:
+            type: object   
 definitions:
   UserRegisterBase:
     required:
-      - name
+      - first_name
       - address
       - password
       - email
     type: object
     properties:
-      name:
+      first_name:
         type: string
       address:
         type: string
       password:
         type: string 
       email:
-        type: string   
+        type: string
+  UserUpdateBase:
+    required:
+      - first_name
+      - address
+      - email
+      - password
+    type: object
+    # 
+    properties:
+      first_name:
+        type: string
+      address:
+        type: string
+      password:
+        type: string 
+      email:
+        type: string
 
-parameters:
-  email:
-    name: email
-    in: path
-    required: true
-    type: string
+# parameters:
+#   email:
+#     name: email
+#     in: path
+#     required: true
+#     type: string
 
 
