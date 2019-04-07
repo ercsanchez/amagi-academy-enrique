@@ -1,29 +1,33 @@
-// import { postgres } from '../postgres';
-// import { insert } from '../model';
 import axios from 'axios'
 
 export function routes(router) {
     router
         .post('/register', async (req, res) => {
-            const { name, address, password, email } = req.body;
-            console.log(`S1 input to /register: ${JSON.stringify(req.body)}`);
+            const { first_name, address, password, email } = req.body;
+            console.log(`CLIENT - POST input to /register - req.body: ${JSON.stringify(req.body)}`);
             try {
                 let response = await axios({
                     method: 'post',
                     url: `http://localhost:5000/v1/register`,
                     // url: `http://172.19.0.4:5000/v1/register`,
                     data: {
-                        name,
+                        first_name,
                         address, 
                         password, 
                         email
                     }
                 });
-                console.log(response.data);
-                res.send(response.data);
+                console.log(`CLIENT - POST output of /register - response.data: ${JSON.stringify(response.data)}`);
+                res.json(response.data);
             } catch (err) {
                 console.error(new Error(err));
             }
             
         });
 }
+
+// ISSUES:
+// DOES NOT CHECK IF EMAIL ALREADY EXISTS
+// DOES NOT CHECK INPUTS
+// DOES NOT CHECK OUTPUT
+// DOES NOT RETURN STATUS CODES FOR CORRESPONDING RESPONSES

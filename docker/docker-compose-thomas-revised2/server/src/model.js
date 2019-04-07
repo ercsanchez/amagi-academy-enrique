@@ -1,5 +1,3 @@
-import { cpus } from "os";
-
 export const schema = {
     create: [`CREATE TABLE users(
                 id BIGSERIAL PRIMARY KEY, 
@@ -19,6 +17,7 @@ export async function insertUser(pg, data) {
         // console.log('what is data: ', data);
         
         // sets missing name and/or address field/s to an empty string
+        console.log(data.hasOwnProperty('first_name'));
         const schemaColumns = ["first_name", "address", "password", "email"];
         schemaColumns
             .filter( (prop) => {
@@ -39,6 +38,8 @@ export async function insertUser(pg, data) {
     }
 }   
 export async function retrieveUser(pg, paramEmail) {
+    // use tests to check output of retrieval if it gives the correct info (name, address, email) since nothing to test for the params
+    // password should be private and should not be shown
     try {
         console.log(`retrieveUser - input (email): ${JSON.stringify(paramEmail)}`);
         return pg.rows(
@@ -49,15 +50,12 @@ export async function retrieveUser(pg, paramEmail) {
     }
 }
 export async function updateUser(pg, data, paramEmail) {
-    
-    // return pg.rows(`UPDATE cards SET name = $1 WHERE id = $2`, data, id );
     try {
         // empty strings are allowed for name and address if user wants to make it empty
         // if data.property undefined, then dont update that prop; only update props with specified string values
-        
         console.log(`updateUser - input (email): ${JSON.stringify(paramEmail)}`);
 
-        // only update fields that have been indicated
+        // only update fields that have been indicated in the req.body
         const schemaColumns = ["first_name", "address", "password", "email"];
         const columnsToUpdate = schemaColumns.filter( (prop) => data.hasOwnProperty(prop) );
         const columnValuesToUpdate = columnsToUpdate.map( (prop) => data[prop] );
@@ -72,18 +70,16 @@ export async function updateUser(pg, data, paramEmail) {
                 queryString += ' ' + cols[i] + ' = $' + (i+1) + ' ';
                 }
             }
-            console.log(`UPDATE users SET ${queryString} WHERE email = $${columnsToUpdate.length + 1}`);
             return `UPDATE users SET ${queryString} WHERE email = $${columnsToUpdate.length + 1}`;
         }
-        return pg.rows(
-            // `UPDATE users SET first_name = $1, address = $2, password = $3, email = $4 WHERE email = $5`, first_name, address, password, email, paramEmail
-            query(columnsToUpdate), ...columnValuesToUpdate, paramEmail
-        )
+        // deleted: `UPDATE users SET first_name = $1, address = $2, password = $3, email = $4 WHERE email = $5`, first_name, address, password, email, paramEmail
+        return pg.rows(query(columnsToUpdate), ...columnValuesToUpdate, paramEmail);
+
     } catch(err) {
         console.error(new Error(err));
     }
 }
-export async function removeUser(pg, paramEmail) {
+export async function deleteUser(pg, paramEmail) {
     try {
         console.log(`deleteUser - input (email): ${JSON.stringify(paramEmail)}`);
         return pg.rows(

@@ -38,4 +38,4 @@ router.get('/swagger.json', (req, res) => {
 app.use('/v1', router);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`service1 listening on ${PORT}`))
+app.listen(PORT, () => console.log(`client listening on ${PORT}`))
