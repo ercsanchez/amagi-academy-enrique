@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    depends_on:
+      - postgresdb
+    volumes:
+      - ./client:/app/client
+    ports:
+      - 3000:3000
+    restart: always
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    depends_on:
+      - postgresdb
+    volumes:
+      - ./server:/app/server
+    ports:
+      - 5000:5000
+    restart: always  
+
+  postgresdb:
+    image: postgres:10.7-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./volumes/postgresdb:/app/var/lib/postgresql/data
+
+
+  
