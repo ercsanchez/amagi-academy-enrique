@@ -19,7 +19,7 @@ export function routes(router) {
                 if (result[0] === undefined) return res.status(404).json( { "message": "User not found" } );
 
                 // STATUS: 200
-                else return res.status(200).json( { "message": "User queried", "result": result[0] } );
+                else return res.status(200).json({"message":"User queried","result":result[0]});
 
             } catch (err) {
                 console.error(new Error(err));

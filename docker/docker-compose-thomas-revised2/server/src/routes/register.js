@@ -60,19 +60,19 @@ export function routes(router) {
                     console.log(`SERVER output - POST /register route - req.body: ${JSON.stringify(result[0])}`);
                     // add checking of data type for first_name and address
                     if (!first_name && !address) {
-                        return res.status(200).json( { "User is registered but first_name and address are either undefined or an empty string": result[0] } );
+                        return res.status(200).json( { "message": "User is registered but first_name and address are either undefined or an empty string", "result": result[0] } );
                     }
                     if (!first_name) {
                     // STATUS: 206 - lacking first_name and/or address
-                        return res.status(200).json( { "User is registered but first_name is either undefined or an empty string": result[0] } );
+                        return res.status(200).json( { "message": "User is registered but first_name is either undefined or an empty string", "result": result[0] } );
                     } 
                     if (!address) {
                         // STATUS: 206 - lacking first_name and/or address
-                            return res.status(200).json( { "User is registered but address is either undefined or an empty string": result[0] } );
+                            return res.status(200).json( { "message": "User is registered but address is either undefined or an empty string", "result": result[0] } );
                     } 
                     else {
                     // STATUS: 200 - complete information
-                        return res.status(200).json( { "User is registered with complete information": result[0] } );
+                        return res.status(200).json( {"message":"User is registered with complete information","result":result[0]} );
                     }
                 } catch(err) {
                     console.error(new Error(err));

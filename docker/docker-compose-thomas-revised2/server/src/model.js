@@ -16,6 +16,10 @@ export async function insertUser(pg, data) {
     try {
         // console.log('what is data: ', data);
         
+        // ISSUES:
+        // SHOULD CONVERT FIRST_NAME TO LOWERCASE BEFORE STORING IN DB
+
+
         // sets missing name and/or address field/s to an empty string
         console.log(data.hasOwnProperty('first_name'));
         const schemaColumns = ["first_name", "address", "password", "email"];

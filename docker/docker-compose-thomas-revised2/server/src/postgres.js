@@ -23,8 +23,8 @@ async function setup(pg, schema) {
 export function postgresMiddleware(schema) {
     // const pg = new PgAsync('postgres://user:secret-pword@host:port/database-name);
     // const pg = new PgAsync({ connectionString: 'postgres://postgres:node1337@128.199.227.243:5432/academy'})
-    // const pg = new PgAsync({ connectionString: 'postgres://postgres@localhost:5432/academy' })
-    const pg = new PgAsync({ connectionString: 'postgres://postgres@postgresdb:5432/academy' })
+    const pg = new PgAsync({ connectionString: 'postgres://postgres@localhost:5432/academy' })
+    // const pg = new PgAsync({ connectionString: 'postgres://postgres@postgresdb:5432/academy' })
     const setupSchema = once(setup);
     return async (req, res, next) => {
         try {
